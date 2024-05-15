@@ -1,0 +1,17 @@
+.container-wrapper {
+    margin-right: 10%;
+    margin-left: 10%;
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-address p {
+    margin: 5px; 
+    padding: 0;
+}
+
+.invoice-information p {
+    margin: 5px; 
+    padding: 0;
+}
