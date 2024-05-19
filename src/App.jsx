@@ -3,30 +3,33 @@ import React from 'react';
 import InvoicePage from './components/invoicePage/InvoicePage';
 import ConvertToPdfButton from './components/convert-to-pdf-button/ConvertToPdfButton';
 import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
+import jsPDF from 'jspdf';
 
 function App() {
-  // const printRef = React.useRef();
+  const printDocument = () => {
+    const input = document.getElementById('invoice-container');
+    html2canvas(input, { scale: 2 })  // Increasing scale for better resolution
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
 
-  // const handleDownloadPdf = async () => {
-  //   const element = printRef.current;
-  //   const canvas = await html2canvas(element);
-  //   const data = canvas.toDataURL('image/png');
-  //   console.log(data)
-  //   const pdf = new jsPDF();
-  //   const imgProperties = pdf.getImageProperties(data);
-  //   const pdfWidth = pdf.internal.pageSize.getWidth();
-  //   const pdfHeight =
-  //     (imgProperties.height * pdfWidth) / imgProperties.width;
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-  //   pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
-  //   pdf.save('print.pdf');
-  // };
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+        pdf.save("invoice.pdf");
+      });
+  };
 
   return (
-    <div className='container'>
+    <div className='container'>  
       <InvoicePage />
-      <ConvertToPdfButton />
+      <ConvertToPdfButton onClick={printDocument}/>
     </div>
   );
 }

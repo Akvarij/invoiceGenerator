@@ -1,8 +1,8 @@
 import './ConvertToPdfButton.css'
 
-export default function ConvertToPdfButton() {
+export default function ConvertToPdfButton({ onClick }) {
     return (
-        <button className='convert-to-pdf'>Convert to PDF</button>
+        <button className='convert-to-pdf' onClick={onClick}>Convert to PDF</button>
     )}
 
     
