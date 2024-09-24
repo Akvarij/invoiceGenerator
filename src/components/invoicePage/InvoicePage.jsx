@@ -1,28 +1,29 @@
-import './InvoicePage.css'
-import { Header } from '../header/Header'
-import { CompanyInvoiceInformation } from '../company-invoice-information/CompanyInvoiceInformation'
-import { CustomerAddress } from '../customer-address/CustomerAddress'
-import { TableInformation } from '../table-information/TableInformation'
-import { BankDetails } from '../bank-details/BankDetails'
-import { Footer } from '../footer/Footer'
+import "./InvoicePage.css";
+import { Header } from "../header/Header";
+import { CustomerAddress } from "../customer-address/CustomerAddress";
+import { TableComponent } from "../table-information/TableComponent";
+import { BankDetails } from "../bank-details/BankDetails";
+import { Footer } from "../footer/Footer";
 
-export default function InvoicePage() {
-    return (
-        <div id='invoice-container'>
-            <Header />
-            <CompanyInvoiceInformation />
+export const InvoicePage = ({ formData }) => {
+  // Extract services from formData if available
+  const { services } = formData;
 
-            <br></br>
-            <CustomerAddress />
-            
-            <br></br>
-            <TableInformation />
+  return (
+    <div id="invoice-container">
+      <Header {...formData} />
 
-            <br></br>
-            <BankDetails />
+      <br />
+      <CustomerAddress {...formData} />
 
-            <br></br>
-            <Footer />
-        </div>
-    )
-}
+      <br />
+      <TableComponent services={services} />
+
+      <br />
+      <BankDetails {...formData} />
+
+      <br />
+      <Footer />
+    </div>
+  );
+};

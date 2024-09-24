@@ -1,17 +1,17 @@
 .customer-address {
-    margin-right: 10%;
-    margin-left: 10%;
-    display: flex;
-    justify-content: start;
-    flex-direction: column;
+  margin-right: 10%;
+  margin-left: 10%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
 }
 
 .customer-address h4 {
-    margin: 2px; 
-    padding: 0;
+  margin: 2px;
+  padding: 0;
 }
 
 .customer-address p {
-    margin: 2px; 
-    padding: 0;
+  margin: 2px;
+  padding: 0;
 }
