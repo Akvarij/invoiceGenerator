@@ -58,8 +58,8 @@ export const FormComponent = ({ onComplete }) => {
 
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({});
-  const [services, setServices] = useState([{ service: "", amount: "" }]);
-  const [serviceError, setServiceError] = useState(false);
+  const [services, setServices] = useState([{ service: "", amount: "" }]); // Initialize with one empty service
+  const [serviceError, setServiceError] = useState(false); // State for service validation
 
   const handleNextStep = async (data) => {
     const isValid = await trigger(); // Trigger validation for the current step
@@ -108,6 +108,7 @@ export const FormComponent = ({ onComplete }) => {
   const onSubmit = (data) => {
     const nonEmptyServices = filterNonEmptyServices();
 
+    // Check if at least one valid service exists
     if (!hasAtLeastOneService()) {
       setServiceError("At least one service is required.");
       return;
@@ -115,7 +116,7 @@ export const FormComponent = ({ onComplete }) => {
 
     const finalData = { ...data, services: nonEmptyServices };
     setServiceError(false); // Clear error if the validation passes
-    onComplete(finalData);
+    onComplete(finalData); // Call the parent method with form data including services
     navigate("/invoice");
   };
 
@@ -138,7 +139,7 @@ export const FormComponent = ({ onComplete }) => {
               type="number"
               {...register("postal", {
                 minLength: 4,
-                minLength: 5,
+                maxLength: 4,
                 required: "This is required",
               })}
               label="Postal"
