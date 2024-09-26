@@ -60,7 +60,6 @@ export const App = () => {
   return (
     <Router>
       <Routes>
-        {/* Default redirect from "/" to "/form" */}
         <Route
           path="/"
           element={<Navigate to="/form" />}
