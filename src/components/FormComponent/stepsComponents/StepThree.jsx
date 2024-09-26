@@ -46,7 +46,17 @@ export const StepThree = ({
           type="number"
           id="IBAN"
           aria-label="IBAN"
-          {...register("IBAN", { required: "IBAN is required", maxLength: 34 })}
+          {...register("IBAN", {
+            required: "IBAN is required",
+            minLength: {
+              value: 34,
+              message: "Enter valid IBAN",
+            },
+            maxLength: {
+              value: 34,
+              message: "Postal code cannot exceed 34 digits",
+            },
+          })}
         />
         {errors.IBAN && <ErrorMessage>{errors.IBAN.message}</ErrorMessage>}
       </Div>

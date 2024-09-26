@@ -36,7 +36,6 @@ export const FormComponent = ({ onComplete }) => {
   const navigate = useNavigate();
 
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({});
   const [services, setServices] = useState([{ service: "", amount: "" }]);
   const [serviceError, setServiceError] = useState(false);
 

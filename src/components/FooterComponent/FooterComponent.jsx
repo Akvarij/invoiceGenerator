@@ -1,11 +1,9 @@
 import styled from "styled-components";
 
 const Footer = styled.div`
-  max-width: 30rem;
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  font-size: 8px;
+  margin-right: 10%;
+  margin-left: 10%;
 `;
 
 export const FooterComponent = () => {
