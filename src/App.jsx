@@ -1,11 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { styled } from "styled-components";
 import React, { useState } from "react";
-import { InvoicePageComponent } from "./components/InvoicePageComponent/InvoicePageComponent.jsx";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import styled from "styled-components";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { FormComponent } from "./components/FormComponent/FormComponent";
 import { Button } from "./components/CustomButtonComponent/CustomButtonComponent.jsx";
+import { FormComponent } from "./components/FormComponent/FormComponent";
+import { InvoicePageComponent } from "./components/InvoicePageComponent/InvoicePageComponent.jsx";
 
 const Container = styled.div`
   display: flex;
@@ -55,6 +60,12 @@ export const App = () => {
   return (
     <Router>
       <Routes>
+        {/* Default redirect from "/" to "/form" */}
+        <Route
+          path="/"
+          element={<Navigate to="/form" />}
+        />
+
         <Route
           path="/form"
           element={
