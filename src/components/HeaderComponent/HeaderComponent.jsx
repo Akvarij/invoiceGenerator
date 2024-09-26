@@ -1,7 +1,7 @@
-import "./Header.css";
+import "./HeaderComponent.css";
 import { format, addDays } from "date-fns";
 
-export const Header = ({ companyName, street, postal, id, email }) => {
+export const HeaderComponent = ({ companyName, street, postal, id, email }) => {
   const currentDate = new Date();
 
   const invoiceNumber = `#${format(currentDate, "yy")}-${format(

@@ -1,4 +1,4 @@
-import { Button } from "../../button/Button.jsx";
+import { Button } from "../../CustomButtonComponent/CustomButtonComponent.jsx";
 import {
   Input,
   Div,
