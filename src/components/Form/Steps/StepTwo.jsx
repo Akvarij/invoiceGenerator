@@ -1,11 +1,5 @@
-import { Button } from "../../CustomButtonComponent/CustomButtonComponent.jsx";
-import {
-  Input,
-  ButtonContainer,
-  Div,
-  StepTracker,
-  ErrorMessage,
-} from "../StyledComponents.js";
+import { Button } from "../../Button/Button.jsx";
+import "../Form.css";
 
 export const StepTwo = ({
   register,
@@ -16,19 +10,19 @@ export const StepTwo = ({
   return (
     <>
       <p>Bill To:</p>
-      <Div>
+      <div className="customer-address">
         <label htmlFor="company">Company Name</label>
-        <Input
+        <input
           id="company"
           aria-label="Company Name"
           {...register("company", { required: "Company name is required" })}
         />
         {errors.company && (
-          <ErrorMessage>{errors.company.message}</ErrorMessage>
+          <p className="error-message">{errors.company.message}</p>
         )}
 
         <label htmlFor="companyAddress">Company Address</label>
-        <Input
+        <input
           id="companyAddress"
           aria-label="Company Address"
           {...register("companyAddress", {
@@ -36,11 +30,11 @@ export const StepTwo = ({
           })}
         />
         {errors.companyAddress && (
-          <ErrorMessage>{errors.companyAddress.message}</ErrorMessage>
+          <p className="error-message">{errors.companyAddress.message}</p>
         )}
 
         <label htmlFor="postalCode">Postal Code</label>
-        <Input
+        <input
           type="number"
           id="postalCode"
           aria-label="Postal Code"
@@ -56,21 +50,21 @@ export const StepTwo = ({
           })}
         />
         {errors.postalCode && (
-          <ErrorMessage>{errors.postalCode.message}</ErrorMessage>
+          <p className="error-message">{errors.postalCode.message}</p>
         )}
 
         <label htmlFor="country">Country</label>
-        <Input
+        <input
           id="country"
           aria-label="Country"
           {...register("country", { required: "Country is required" })}
         />
         {errors.country && (
-          <ErrorMessage>{errors.country.message}</ErrorMessage>
+          <p className="error-message">{errors.country.message}</p>
         )}
-      </Div>
+      </div>
 
-      <ButtonContainer>
+      <div className="button-container">
         <Button
           type="button"
           onClick={handlePrevStep}
@@ -83,9 +77,9 @@ export const StepTwo = ({
         >
           Continue
         </Button>
-      </ButtonContainer>
+      </div>
 
-      <StepTracker>2/4</StepTracker>
+      <p className=".step-tracker">2/4</p>
     </>
   );
 };

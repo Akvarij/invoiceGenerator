@@ -5,28 +5,12 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import styled from "styled-components";
+import "./App.css";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { Button } from "./components/CustomButtonComponent/CustomButtonComponent.jsx";
-import { FormComponent } from "./components/FormComponent/FormComponent";
-import { InvoicePageComponent } from "./components/InvoicePageComponent/InvoicePageComponent.jsx";
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-`;
-
-const Div = styled.div`
-  max-width: 30rem;
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-`;
+import { Button } from "./components/Button/Button.jsx";
+import { Form } from "./components/Form/Form.jsx";
+import { InvoicePage } from "./components/InvoicePage/InvoicePage.jsx";
 
 export const App = () => {
   const [formData, setFormData] = useState(null);
@@ -68,29 +52,29 @@ export const App = () => {
         <Route
           path="/form"
           element={
-            <Container>
+            <div id="invoice-container">
               {!isFormComplete ? (
-                <FormComponent onComplete={handleFormComplete} />
+                <Form onComplete={handleFormComplete} />
               ) : (
                 <Button onClick={printDocument}>Convert to PDF</Button>
               )}
-            </Container>
+            </div>
           }
         />
         <Route
           path="/invoice"
           element={
-            <Container>
-              <InvoicePageComponent formData={formData} />
-              <Div>
+            <div id="invoice-container">
+              <InvoicePage formData={formData} />
+              <div className="button-container">
                 <Button
                   type="button"
                   onClick={printDocument}
                 >
                   Convert to PDF
                 </Button>
-              </Div>
-            </Container>
+              </div>
+            </div>
           }
         />
       </Routes>

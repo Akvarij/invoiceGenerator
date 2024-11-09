@@ -1,7 +1,7 @@
-import "./TableInformationComponent.css";
+import "./TableInformation.css";
 import React from "react";
 
-export const TableInformationComponent = ({ services }) => {
+export const TableInformation = ({ services }) => {
   const totalAmount = services.reduce(
     (sum, service) => sum + parseFloat(service.amount || 0),
     0

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { Form } from "./StyledComponents.js";
+import "./Form.css";
 
-import { StepOne } from "./stepsComponents/StepOne.jsx";
-import { StepTwo } from "./stepsComponents/StepTwo.jsx";
-import { StepThree } from "./stepsComponents/StepThree.jsx";
-import { StepFour } from "./stepsComponents/StepFour.jsx";
+import { StepOne } from "./Steps/StepOne.jsx";
+import { StepTwo } from "./Steps/StepTwo.jsx";
+import { StepThree } from "./Steps/StepThree.jsx";
+import { StepFour } from "./Steps/StepFour.jsx";
 
 const filterNonEmptyServices = (services) => {
   return services.filter(
@@ -26,7 +26,7 @@ const hasAtLeastOneService = (services) => {
   );
 };
 
-export const FormComponent = ({ onComplete }) => {
+export const Form = ({ onComplete }) => {
   const {
     register,
     handleSubmit,
@@ -77,7 +77,7 @@ export const FormComponent = ({ onComplete }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       {step === 1 && (
         <StepOne
           register={register}
@@ -111,6 +111,6 @@ export const FormComponent = ({ onComplete }) => {
           calculateTotalAmount={() => calculateTotalAmount(services)}
         />
       )}
-    </Form>
+    </form>
   );
 };

@@ -1,12 +1,4 @@
-import { Button } from "../../CustomButtonComponent/CustomButtonComponent.jsx";
-
-import {
-  Input,
-  ServiceContainer,
-  ButtonContainer,
-  StepTracker,
-  ErrorMessage,
-} from "../StyledComponents.js";
+import { Button } from "../../Button/Button.jsx";
 
 export const StepFour = ({
   services,
@@ -20,18 +12,18 @@ export const StepFour = ({
     <>
       <p>Services:</p>
       {services.map((service, index) => (
-        <ServiceContainer
+        <div
           key={index}
-          className="services"
+          className="service-container"
         >
-          <Input
+          <input
             value={service.service}
             onChange={(e) =>
               handleServiceChange(index, "service", e.target.value)
             }
             placeholder="Service"
           />
-          <Input
+          <input
             type="number"
             value={service.amount}
             onChange={(e) =>
@@ -39,10 +31,10 @@ export const StepFour = ({
             }
             placeholder="Amount"
           />
-        </ServiceContainer>
+        </div>
       ))}
-      {serviceError && <ErrorMessage>{serviceError}</ErrorMessage>}
-      <ServiceContainer>
+      {serviceError && <p className="error-message">{serviceError}</p>}
+      <div className="service-container">
         <Button
           type="button"
           onClick={handleNewService}
@@ -50,8 +42,8 @@ export const StepFour = ({
           Add New Service
         </Button>
         <p>Total amount: {calculateTotalAmount(services)} EUR</p>
-      </ServiceContainer>
-      <ButtonContainer>
+      </div>
+      <div className="button-container">
         <Button
           type="button"
           onClick={handlePrevStep}
@@ -59,8 +51,8 @@ export const StepFour = ({
           Back
         </Button>
         <Button type="submit">Submit</Button>
-      </ButtonContainer>
-      <StepTracker>4/4</StepTracker>
+      </div>
+      <p className=".step-tracker">4/4</p>
     </>
   );
 };

@@ -1,11 +1,5 @@
-import { Button } from "../../CustomButtonComponent/CustomButtonComponent.jsx";
-import {
-  Input,
-  ButtonContainer,
-  Div,
-  StepTracker,
-  ErrorMessage,
-} from "../StyledComponents.js";
+import { Button } from "../../Button/Button.jsx";
+import "../Form.css";
 
 export const StepThree = ({
   register,
@@ -16,9 +10,9 @@ export const StepThree = ({
   return (
     <>
       <p>Bank details:</p>
-      <Div>
+      <div className="customer-address">
         <label htmlFor="accountOpenedAt">Account Opened At</label>
-        <Input
+        <input
           id="accountOpenedAt"
           aria-label="Account Opened At"
           {...register("accountOpenedAt", {
@@ -26,11 +20,11 @@ export const StepThree = ({
           })}
         />
         {errors.accountOpenedAt && (
-          <ErrorMessage>{errors.accountOpenedAt.message}</ErrorMessage>
+          <p className="error-message">{errors.accountOpenedAt.message}</p>
         )}
 
         <label htmlFor="accountHolder">Account Holder</label>
-        <Input
+        <input
           id="accountHolder"
           aria-label="Account Holder"
           {...register("accountHolder", {
@@ -38,11 +32,11 @@ export const StepThree = ({
           })}
         />
         {errors.accountHolder && (
-          <ErrorMessage>{errors.accountHolder.message}</ErrorMessage>
+          <p className="error-message">{errors.accountHolder.message}</p>
         )}
 
         <label htmlFor="IBAN">IBAN</label>
-        <Input
+        <input
           type="number"
           id="IBAN"
           aria-label="IBAN"
@@ -58,10 +52,10 @@ export const StepThree = ({
             },
           })}
         />
-        {errors.IBAN && <ErrorMessage>{errors.IBAN.message}</ErrorMessage>}
-      </Div>
+        {errors.IBAN && <p className="error-message">{errors.IBAN.message}</p>}
+      </div>
 
-      <ButtonContainer>
+      <div className="button-container">
         <Button
           type="button"
           onClick={handlePrevStep}
@@ -74,9 +68,9 @@ export const StepThree = ({
         >
           Continue
         </Button>
-      </ButtonContainer>
+      </div>
 
-      <StepTracker>3/4</StepTracker>
+      <p className=".step-tracker">3/4</p>
     </>
   );
 };

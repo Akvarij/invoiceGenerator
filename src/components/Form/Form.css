@@ -1,6 +1,4 @@
-import styled from "styled-components";
-
-export const Form = styled.form`
+form {
   background: #fff;
   padding: 0.5rem;
   border: 0.5px solid rgba(16, 40, 73, 0.09);
@@ -13,9 +11,9 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+}
 
-export const Input = styled.input`
+input {
   max-width: 30rem;
   padding: 0.5rem;
   border: 0.5px solid rgba(16, 40, 73, 0.09);
@@ -23,9 +21,9 @@ export const Input = styled.input`
   border-radius: 0.25rem;
   font-size: 1rem;
   margin-bottom: 0.1rem;
-`;
+}
 
-export const Div = styled.div`
+.customer-address {
   max-width: 35rem;
   margin-top: 1rem;
   display: flex;
@@ -33,47 +31,47 @@ export const Div = styled.div`
   gap: 0.5rem;
   align-items: flex-start;
   justify-content: space-evenly;
+}
 
-  label {
-    font-weight: bold;
-    margin-bottom: 0.2rem;
-  }
-`;
+.customer-address label {
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+}
 
-export const ServiceContainer = styled.div`
-  max-width: 35rem;
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  text-align: center;
-  justify-content: space-evenly;
-
-  p {
-    margin: 0.73rem;
-    font-size: 15px;
-  }
-`;
-
-export const ButtonContainer = styled.div`
-  max-width: 35rem;
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-  text-align: center;
-  justify-content: space-evenly;
-`;
-
-export const StepTracker = styled.p`
-  font-size: 1rem;
-  color: #333;
-`;
-
-export const ErrorMessage = styled.p`
+.error-message {
   color: red;
   font-size: 0.875rem;
   margin-top: 0.2rem;
-`;
+}
+
+.button-container {
+  max-width: 35rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.service-container {
+  max-width: 35rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.service-container p {
+  margin: 0.73rem;
+  font-size: 15px;
+}
+
+.step-tracker {
+  font-size: 1rem;
+  color: #333;
+}

@@ -1,0 +1,12 @@
+.customer-address {
+  margin-right: 10%;
+  margin-left: 10%;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.customer-address h4,
+.customer-address p {
+  margin: 0px;
+  padding: 1px;
+}

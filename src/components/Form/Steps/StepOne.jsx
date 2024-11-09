@@ -1,40 +1,36 @@
-import { Button } from "../../CustomButtonComponent/CustomButtonComponent.jsx";
-import {
-  Input,
-  Div,
-  StepTracker,
-  ButtonContainer,
-  ErrorMessage,
-} from "../StyledComponents.js";
+import { Button } from "../../Button/Button.jsx";
+import "../Form.css";
 
 export const StepOne = ({ register, errors, handleNextStep }) => {
   return (
     <>
       <p>Company Address:</p>
-      <Div>
-        <label htmlFor="companyName">Company Name</label>
-        <Input
+      <div className="customer-address">
+        <label htmlFor="companyName">Company name</label>
+        <input
           id="companyName"
-          aria-label="Company Name"
+          aria-label="Company name"
           {...register("companyName", { required: "Company name is required" })}
         />
         {errors.companyName && (
-          <ErrorMessage>{errors.companyName.message}</ErrorMessage>
+          <p className="error-message">{errors.companyName.message}</p>
         )}
 
         <label htmlFor="street">Street</label>
-        <Input
+        <input
           id="street"
           aria-label="Street"
           {...register("street", { required: "Street is required" })}
         />
-        {errors.street && <ErrorMessage>{errors.street.message}</ErrorMessage>}
+        {errors.street && (
+          <p className="error-message">{errors.street.message}</p>
+        )}
 
-        <label htmlFor="postal">Postal Code</label>
-        <Input
+        <label htmlFor="postal">Postal code</label>
+        <input
           type="number"
           id="postal"
-          aria-label="Postal Code"
+          aria-label="Postal code"
           {...register("postal", {
             required: "Postal code is required",
             minLength: {
@@ -47,19 +43,21 @@ export const StepOne = ({ register, errors, handleNextStep }) => {
             },
           })}
         />
-        {errors.postal && <ErrorMessage>{errors.postal.message}</ErrorMessage>}
+        {errors.postal && (
+          <p className="error-message">{errors.postal.message}</p>
+        )}
 
         <label htmlFor="id">ID</label>
-        <Input
+        <input
           type="number"
           id="id"
           aria-label="ID"
           {...register("id", { required: "ID is required" })}
         />
-        {errors.id && <ErrorMessage>{errors.id.message}</ErrorMessage>}
+        {errors.id && <p className="error-message">{errors.id.message}</p>}
 
         <label htmlFor="email">Email</label>
-        <Input
+        <input
           id="email"
           aria-label="Email"
           {...register("email", {
@@ -70,19 +68,21 @@ export const StepOne = ({ register, errors, handleNextStep }) => {
             },
           })}
         />
-        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-      </Div>
+        {errors.email && (
+          <p className="error-message">{errors.email.message}</p>
+        )}
+      </div>
 
-      <ButtonContainer>
+      <div className="button-container">
         <Button
           type="button"
           onClick={handleNextStep}
         >
           Continue
         </Button>
-      </ButtonContainer>
+      </div>
 
-      <StepTracker>1/4</StepTracker>
+      <p className=".step-tracker">1/4</p>
     </>
   );
 };
