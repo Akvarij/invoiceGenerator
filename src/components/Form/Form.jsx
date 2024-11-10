@@ -97,7 +97,6 @@ export const Form = ({ onComplete }) => {
     const finalData = { ...data, services: nonEmptyServices };
     localStorage.setItem("finalData", JSON.stringify(finalData));
     onComplete(finalData);
-    console.log(finalData);
     navigate("/invoice");
   };
 
