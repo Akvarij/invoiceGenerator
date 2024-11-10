@@ -1,7 +1,13 @@
 import { Button } from "../../Button/Button.jsx";
 import "../Form.css";
 
-export const StepOne = ({ register, errors, handleNextStep }) => {
+export const StepOne = ({
+  register,
+  errors,
+  handleNextStep,
+  handleInputValue,
+  setLocalStorageError,
+}) => {
   return (
     <>
       <p>Company Address:</p>
@@ -70,6 +76,18 @@ export const StepOne = ({ register, errors, handleNextStep }) => {
         />
         {errors.email && (
           <p className="error-message">{errors.email.message}</p>
+        )}
+      </div>
+
+      <div className="address-container">
+        <Button
+          type="button"
+          onClick={handleInputValue}
+        >
+          Use previous address
+        </Button>
+        {setLocalStorageError && (
+          <p className="error-message">{setLocalStorageError}</p>
         )}
       </div>
 

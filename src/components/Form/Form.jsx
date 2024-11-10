@@ -29,6 +29,7 @@ const hasAtLeastOneService = (services) => {
 export const Form = ({ onComplete }) => {
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
     trigger,
@@ -38,6 +39,28 @@ export const Form = ({ onComplete }) => {
   const [step, setStep] = useState(1);
   const [services, setServices] = useState([{ service: "", amount: "" }]);
   const [serviceError, setServiceError] = useState(false);
+  const [localStorageData, setLocalStorageData] = useState({});
+  const [localStorageError, setLocalStorageError] = useState(""); // State for error message
+
+  const handleInputValue = () => {
+    let localData = localStorage.getItem("finalData");
+    if (localData) {
+      const parsedData = JSON.parse(localData);
+      if (parsedData && Object.keys(parsedData).length > 0) {
+        setLocalStorageData(parsedData);
+        setLocalStorageError("");
+
+        // Sync data with form fields
+        Object.keys(parsedData).forEach((key) => {
+          setValue(key, parsedData[key] || ""); // This ensures synchronization
+        });
+      } else {
+        setLocalStorageError("No data found or data is empty.");
+      }
+    } else {
+      setLocalStorageError("No data found in localStorage.");
+    }
+  };
 
   const handleNextStep = async () => {
     const isValid = await trigger();
@@ -72,7 +95,9 @@ export const Form = ({ onComplete }) => {
 
     setServiceError(false);
     const finalData = { ...data, services: nonEmptyServices };
+    localStorage.setItem("finalData", JSON.stringify(finalData));
     onComplete(finalData);
+    console.log(finalData);
     navigate("/invoice");
   };
 
@@ -83,6 +108,9 @@ export const Form = ({ onComplete }) => {
           register={register}
           errors={errors}
           handleNextStep={handleNextStep}
+          setValue={setValue}
+          handleInputValue={handleInputValue}
+          setLocalStorageError={setLocalStorageError}
         />
       )}
       {step === 2 && (

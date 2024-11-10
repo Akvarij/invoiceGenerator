@@ -66,6 +66,15 @@ input {
   justify-content: space-evenly;
 }
 
+.address-container {
+  max-width: 35rem;
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-direction: column;
+}
+
 .service-container p {
   margin: 0.73rem;
   font-size: 15px;
