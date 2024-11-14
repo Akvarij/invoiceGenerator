@@ -5,11 +5,3 @@
   flex-direction: column;
   padding: 2rem;
 }
-
-.button-container {
-  max-width: 30rem;
-  margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
