@@ -6,7 +6,7 @@ export const StepOne = ({
   errors,
   handleNextStep,
   handleInputValue,
-  setLocalStorageError,
+  localStorageError,
 }) => {
   return (
     <>
@@ -86,8 +86,8 @@ export const StepOne = ({
         >
           Use previous address
         </Button>
-        {setLocalStorageError && (
-          <p className="error-message">{setLocalStorageError}</p>
+        {localStorageError && (
+          <p className="error-message">{localStorageError}</p>
         )}
       </div>
 

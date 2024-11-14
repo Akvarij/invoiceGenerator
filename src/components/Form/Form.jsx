@@ -55,10 +55,10 @@ export const Form = ({ onComplete }) => {
           setValue(key, parsedData[key] || ""); // This ensures synchronization
         });
       } else {
-        setLocalStorageError("No data found or data is empty.");
+        setLocalStorageError("No data found or data is empty");
       }
     } else {
-      setLocalStorageError("No data found in localStorage.");
+      setLocalStorageError("No data found in localStorage");
     }
   };
 
@@ -109,7 +109,7 @@ export const Form = ({ onComplete }) => {
           handleNextStep={handleNextStep}
           setValue={setValue}
           handleInputValue={handleInputValue}
-          setLocalStorageError={setLocalStorageError}
+          localStorageError={localStorageError}
         />
       )}
       {step === 2 && (
